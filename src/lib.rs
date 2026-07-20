@@ -163,7 +163,7 @@ impl JsonFormatter {
                 continue;
             }
 
-            if c == '\\\' && self.in_string {
+            if c == '\\' && self.in_string {
                 output.push(c);
                 self.is_escaped = true;
                 continue;
