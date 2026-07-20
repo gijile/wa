@@ -1,0 +1,16 @@
+{
+  "name": "wasm-devtools-toolkit",
+  "type": "module",
+  "description": "A high-performance WASM DevTools library written in Rust",
+  "version": "0.1.0",
+  "files": [
+    "wasm_devtools_toolkit_bg.wasm",
+    "wasm_devtools_toolkit.js",
+    "wasm_devtools_toolkit.d.ts"
+  ],
+  "main": "wasm_devtools_toolkit.js",
+  "types": "wasm_devtools_toolkit.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
