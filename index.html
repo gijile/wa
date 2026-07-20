@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WASM Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 2rem;
+        background: #111827;
+        color: #f9fafb;
+      }
+      button {
+        padding: 0.6rem 1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background: #2563eb;
+        color: white;
+      }
+      pre {
+        background: #1f2937;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WASM DevTools Toolkit Demo</h1>
+    <button id="runBtn">Parse CSS</button>
+    <pre id="output">Klik tombol untuk melihat hasil...</pre>
+
+    <script type="module">
+      import init, { parse_css } from './pkg/wasm_devtools_toolkit.js';
+
+      async function run() {
+        await init();
+
+        const css = `
+          .card {
+            color: red;
+            background: blue;
+          }
+          #title {
+            font-size: 20px;
+          }
+        `;
+
+        const result = parse_css(css);
+        document.getElementById('output').textContent = JSON.stringify(result, null, 2);
+      }
+
+      document.getElementById('runBtn').addEventListener('click', run);
+    </script>
+  </body>
+</html>
